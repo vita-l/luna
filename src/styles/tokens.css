@@ -1,0 +1,74 @@
+/*
+  DESIGN TOKENS
+  Every color, size and timing the app uses lives here.
+  Later, these names map 1:1 to Figma variables (light and dark mode).
+
+  Screens never use raw colors. They use these tokens through Tailwind class names:
+    --color-card     → bg-card, text-card, border-card
+    --radius-control → rounded-control
+    --shadow-card    → shadow-card
+*/
+
+@theme {
+  /* Color: surfaces */
+  --color-bg: #f5f2ec;          /* page background */
+  --color-card: #ffffff;        /* cards, selected segment */
+  --color-track: #efebe4;       /* segmented control track, empty result */
+  --color-field: #fbfaf7;       /* text inputs */
+
+  /* Color: text */
+  --color-ink: #23211d;         /* main text */
+  --color-muted: #6b665d;       /* helper text, units */
+
+  /* Color: lines */
+  --color-line: #e2dcd1;
+
+  /* Color: brand accent */
+  --color-accent: #2c6b5a;
+  --color-accent-ink: #ffffff;  /* text on accent */
+  --color-accent-soft: #e4f0eb; /* selected option, result background */
+
+  /* Color: feedback */
+  --color-danger: #b3261e;
+  --color-warn-bg: #fff3d1;
+  --color-warn-ink: #5e4300;
+
+  /* Elevation */
+  --shadow-card: 0 1px 2px rgba(35, 33, 29, .06), 0 4px 16px rgba(35, 33, 29, .05);
+  --shadow-segment: 0 1px 3px rgba(0, 0, 0, .12);
+
+  /* Radius */
+  --radius-card: 18px;
+  --radius-result: 14px;
+  --radius-control: 12px;
+  --radius-note: 10px;
+  --radius-segment: 9px;
+
+  /* Typography */
+  --font-sans: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+
+  /* Motion: short and calm, only to show what changed */
+  --ease-standard: cubic-bezier(.2, 0, 0, 1);
+  --animate-open: collapsible-open 220ms cubic-bezier(.2, 0, 0, 1);
+  --animate-close: collapsible-close 180ms cubic-bezier(.2, 0, 0, 1);
+}
+
+/* Dark mode: same token names, different values */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-bg: #161513;
+    --color-card: #211f1c;
+    --color-track: #2c2925;
+    --color-field: #1a1917;
+    --color-ink: #f1ede6;
+    --color-muted: #a9a296;
+    --color-line: #3a3530;
+    --color-accent: #72c6ab;
+    --color-accent-ink: #0e1f19;
+    --color-accent-soft: #1d3530;
+    --color-danger: #ff8a80;
+    --color-warn-bg: #3b3017;
+    --color-warn-ink: #f5dc9c;
+    --shadow-card: none;
+  }
+}

@@ -1,0 +1,40 @@
+@import "tailwindcss";
+@import "../styles/tokens.css";
+
+@layer base {
+  :root {
+    color-scheme: light dark;
+  }
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
+  body {
+    background: var(--color-bg);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    font-size: 17px;
+    line-height: 1.45;
+  }
+  /* Bigger text in inputs stops phones from zooming in */
+  input {
+    font: inherit;
+  }
+}
+
+/* "Show the math" opens and closes by sliding its height (Radix gives the height) */
+@keyframes collapsible-open {
+  from { height: 0; opacity: 0; }
+  to { height: var(--radix-collapsible-content-height); opacity: 1; }
+}
+@keyframes collapsible-close {
+  from { height: var(--radix-collapsible-content-height); opacity: 1; }
+  to { height: 0; opacity: 0; }
+}
+
+/* People who turn on "reduce motion" on their device get no animation */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}

@@ -1,0 +1,91 @@
+{
+  "app": {
+    "title": "Pet Food Calculator",
+    "description": "Estimate how many calories a dog or cat needs per day, and how many grams of food to feed."
+  },
+
+  "feed": {
+    "title": "How much should my pet eat?",
+    "intro": "Two quick steps. The results update as you type.",
+    "disclaimer": "This is an estimate. Every animal is different. Check your pet’s weight and body shape often, and ask your vet before big changes.",
+
+    "step1": {
+      "title": "Daily calorie needs",
+      "subtitle": "Find out how many calories your pet needs each day.",
+      "method": "Method",
+      "methodFactor": "Activity factor",
+      "methodFactorSub": "2 steps",
+      "methodK": "K value",
+      "methodKSub": "1 step",
+      "animal": "Animal",
+      "dog": "🐶 Dog",
+      "cat": "🐱 Cat",
+      "dogName": "Dog",
+      "catName": "Cat",
+      "weight": "Body weight",
+      "idealWeight": "Ideal body weight",
+      "weightPlaceholder": "12",
+      "weightUnit": "Weight unit",
+      "weightError": "Please type a number, like 12 or 4.5",
+      "idealNote": "For weight loss or gain, type the **ideal** weight, not the current weight.",
+      "toKgNote": "{lb} lb ÷ {factor} = {kg} kg",
+      "toLbNote": "{kg} kg × {factor} = {lb} lb",
+      "lifeStage": "Life stage",
+      "chooseOne": "Choose one",
+      "kValueLabel": "K value",
+      "unitKcalDay": "kcal per day",
+      "idealSuffix": "(ideal)",
+      "emptyBoth": "Type the weight and pick one option above.",
+      "emptyChoice": "Now pick one option above.",
+      "emptyWeight": "Now type the body weight."
+    },
+
+    "step2": {
+      "title": "Daily food amount",
+      "subtitle": "Turn calories into grams of your pet's food.",
+      "energy": "Energy in the food",
+      "energyPlaceholder": "e.g. 3500",
+      "energySuffix": "kcal/kg",
+      "energyHelp": "Look on the food label for “Calorie content” and use the **kcal/kg** number.",
+      "energyError": "Please type a number, like 3500",
+      "energyLowWarn": "This number looks small for kcal per kg. Check that the label says kcal/kg, not kcal per cup or per can.",
+      "meals": "Split into meals?",
+      "mealsNo": "No",
+      "meals2": "2 meals",
+      "meals3": "3 meals",
+      "unitGramsDay": "g per day",
+      "perMeal": "= **{grams} g** per meal, {meals} meals a day",
+      "resultSub": "For {kcal} kcal per day, food with {density} kcal/kg",
+      "emptyStep1": "Finish step 1, then type the kcal/kg from the label.",
+      "emptyStep1Only": "Finish step 1 first.",
+      "emptyEnergy": "Type the kcal/kg from the food label."
+    }
+  },
+
+  "math": {
+    "show": "Show the math",
+    "low": "Low: {line}",
+    "high": "High: {line}",
+    "formula": {
+      "factor": "MER = {multiplier} × BW^{power} × activity factor",
+      "factorKey": "BW^{power} is mBW (metabolic body weight)",
+      "k": "Formula: MER = K × BW^{power}",
+      "kKey": "BW^{power} is mBW (metabolic body weight)",
+      "kLinear": "Formula: MER = K × BW",
+      "kNone": "Formula: MER = K × mBW",
+      "kNoneKey": "mBW = metabolic body weight"
+    },
+    "steps": {
+      "lbToKg": { "title": "Change pounds to kilograms", "line": "{lb} lb ÷ {factor} = {kg} kg" },
+      "metabolicWeight": { "title": "Calculate metabolic weight", "line": "{kg} kg raised to {power} = {mbw} kg^{power}" },
+      "rer": { "title": "Resting energy (RER)", "line": "{multiplier} × {mbw} = {rer} kcal/day" },
+      "merFactor": { "title": "Calculate MER (daily energy requirement)", "line": "{rer} kcal/day × {factor} = {mer} kcal/day" },
+      "merK": { "title": "Calculate MER (daily energy requirement)", "line": "{k} × {mbw} = {mer} kcal/day" },
+      "merKLinear": { "title": "Calculate MER (daily energy requirement)", "line": "{k} × {kg} kg = {mer} kcal/day" },
+      "roundKcal": { "title": "Round to a whole number", "line": "{from} → {to} kcal/day" },
+      "kgPerDay": { "title": "Divide the energy need by the energy in the food", "line": "{kcal} kcal/day ÷ {density} kcal/kg = {kgDay} kg/day" },
+      "grams": { "title": "Change kilograms to grams", "line": "{kgDay} kg × 1000 = {grams} g/day" },
+      "meals": { "title": "Split into {meals} meals", "line": "{grams} g ÷ {meals} = {perMeal} g per meal" }
+    }
+  }
+}
