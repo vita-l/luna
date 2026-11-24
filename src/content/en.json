@@ -5,7 +5,6 @@
     "name": "Luna",
     "tagline": "Pet nutrition calculator"
   },
-
   "nav": {
     "label": "Main",
     "home": "Home",
@@ -14,17 +13,27 @@
     "check": "Check",
     "tools": "Tools"
   },
-
   "home": {
     "title": "What do you want to know?",
     "intro": "Course formulas for dogs and cats, with every step shown.",
-    "food": { "title": "Analyze a food", "text": "Carbohydrate, energy, dry matter and nutrients per 1000 kcal from a food label." },
-    "feed": { "title": "Feed my pet", "text": "How many calories your pet needs each day, and how much food to give." },
-    "check": { "title": "Check the diet", "text": "Is the food enough for your pet? Nutrients and water per day." },
-    "tools": { "title": "Tools", "text": "Unit converter, ideal body weight, puppy growth." },
+    "food": {
+      "title": "Analyze a food",
+      "text": "Carbohydrate, energy, dry matter and nutrients per 1000 kcal from a food label."
+    },
+    "feed": {
+      "title": "Feed my pet",
+      "text": "How many calories your pet needs each day, and how much food to give."
+    },
+    "check": {
+      "title": "Check the diet",
+      "text": "Is the food enough for your pet? Nutrients and water per day."
+    },
+    "tools": {
+      "title": "Tools",
+      "text": "Unit converter, ideal body weight, puppy growth."
+    },
     "soon": "Coming next"
   },
-
   "soon": {
     "title": "Coming next",
     "text": "This part of the app is being built. Here is what it will do:",
@@ -51,12 +60,10 @@
       "Puppy growth per day"
     ]
   },
-
   "feed": {
     "title": "How much should my pet eat?",
     "intro": "Two quick steps. The results update as you type.",
     "disclaimer": "This is an estimate. Every animal is different. Check your pet’s weight and body shape often, and ask your vet before big changes.",
-
     "step1": {
       "title": "Daily calorie needs",
       "subtitle": "Find out how many calories your pet needs each day.",
@@ -87,7 +94,6 @@
       "emptyChoice": "Now pick one option above.",
       "emptyWeight": "Now type the body weight."
     },
-
     "step2": {
       "title": "Daily food amount",
       "subtitle": "Turn calories into grams of your pet's food.",
@@ -109,7 +115,6 @@
       "emptyEnergy": "Type the kcal/kg from the food label."
     }
   },
-
   "math": {
     "show": "Show the math",
     "low": "Low: {line}",
@@ -124,16 +129,201 @@
       "kNoneKey": "mBW = metabolic body weight"
     },
     "steps": {
-      "lbToKg": { "title": "Change pounds to kilograms", "line": "{lb} lb ÷ {factor} = {kg} kg" },
-      "metabolicWeight": { "title": "Calculate metabolic weight", "line": "{kg} kg raised to {power} = {mbw} kg^{power}" },
-      "rer": { "title": "Resting energy (RER)", "line": "{multiplier} × {mbw} = {rer} kcal/day" },
-      "merFactor": { "title": "Calculate MER (daily energy requirement)", "line": "{rer} kcal/day × {factor} = {mer} kcal/day" },
-      "merK": { "title": "Calculate MER (daily energy requirement)", "line": "{k} × {mbw} = {mer} kcal/day" },
-      "merKLinear": { "title": "Calculate MER (daily energy requirement)", "line": "{k} × {kg} kg = {mer} kcal/day" },
-      "roundKcal": { "title": "Round to a whole number", "line": "{from} → {to} kcal/day" },
-      "kgPerDay": { "title": "Divide the energy need by the energy in the food", "line": "{kcal} kcal/day ÷ {density} kcal/kg = {kgDay} kg/day" },
-      "grams": { "title": "Change kilograms to grams", "line": "{kgDay} kg × 1000 = {grams} g/day" },
-      "meals": { "title": "Split into {meals} meals", "line": "{grams} g ÷ {meals} = {perMeal} g per meal" }
+      "lbToKg": {
+        "title": "Change pounds to kilograms",
+        "line": "{lb} lb ÷ {factor} = {kg} kg"
+      },
+      "metabolicWeight": {
+        "title": "Calculate metabolic weight",
+        "line": "{kg} kg raised to {power} = {mbw} kg^{power}"
+      },
+      "rer": {
+        "title": "Resting energy (RER)",
+        "line": "{multiplier} × {mbw} = {rer} kcal/day"
+      },
+      "merFactor": {
+        "title": "Calculate MER (daily energy requirement)",
+        "line": "{rer} kcal/day × {factor} = {mer} kcal/day"
+      },
+      "merK": {
+        "title": "Calculate MER (daily energy requirement)",
+        "line": "{k} × {mbw} = {mer} kcal/day"
+      },
+      "merKLinear": {
+        "title": "Calculate MER (daily energy requirement)",
+        "line": "{k} × {kg} kg = {mer} kcal/day"
+      },
+      "roundKcal": {
+        "title": "Round to a whole number",
+        "line": "{from} → {to} kcal/day"
+      },
+      "kgPerDay": {
+        "title": "Divide the energy need by the energy in the food",
+        "line": "{kcal} kcal/day ÷ {density} kcal/kg = {kgDay} kg/day"
+      },
+      "grams": {
+        "title": "Change kilograms to grams",
+        "line": "{kgDay} kg × 1000 = {grams} g/day"
+      },
+      "meals": {
+        "title": "Split into {meals} meals",
+        "line": "{grams} g ÷ {meals} = {perMeal} g per meal"
+      },
+      "nfeSum": {
+        "title": "Add protein, fat, fibre, moisture and ash",
+        "line": "{parts} = {sum} %"
+      },
+      "nfe": {
+        "title": "Carbohydrate (NFE) = 100 − the rest",
+        "line": "100 − {sum} = {nfe} %"
+      },
+      "atwaterEach": {
+        "title": "Energy of each nutrient: grams × factor",
+        "line": "{name}: {g} g × {factor} = {kcal} kcal"
+      },
+      "atwaterTotal": {
+        "title": "Add them",
+        "line": "{parts} = {total} kcal per 100 g"
+      },
+      "per100gToKg": {
+        "title": "Per 100 g → per kg: × 10",
+        "line": "{per100g} × 10 = {perKg} kcal/kg"
+      },
+      "perKgToLb": {
+        "title": "Per kg → per lb: ÷ {factor}",
+        "line": "{perKg} ÷ {factor} = {perLb} kcal/lb"
+      },
+      "shareEach": {
+        "title": "Each share = its kcal ÷ total kcal × 100",
+        "line": "{name}: {kcal} ÷ {total} × 100 = {share} %"
+      },
+      "shareCheck": {
+        "title": "Check: the shares add up to about 100 %",
+        "line": "{parts} = {total} %"
+      },
+      "dmPercent": {
+        "title": "Dry matter = 100 − moisture",
+        "line": "100 − {moisture} = {dm} %"
+      },
+      "dmNutrient": {
+        "title": "Each nutrient ÷ dry matter × 100",
+        "line": "{name}: {value} ÷ {dm} × 100 = {result} % DM"
+      },
+      "dmEnergy": {
+        "title": "Energy in the dry matter: kcal/kg ÷ (DM % ÷ 100)",
+        "line": "{kcal} ÷ {dec} = {result} kcal/kg DM"
+      },
+      "densityPercent": {
+        "title": "From %: × 10 000 ÷ kcal/kg",
+        "line": "{name}: {value} × 10 000 ÷ {kcal} = {result} {unit}"
+      },
+      "densityPerKg": {
+        "title": "From per kg: × 1000 ÷ kcal/kg",
+        "line": "{name}: {value} × 1000 ÷ {kcal} = {result} {unit}"
+      },
+      "aafco": {
+        "title": "% ÷ kcal/kg of the food × {standard}",
+        "line": "{name}: {value} ÷ {kcal} × {standard} = {result} %"
+      },
+      "caP": {
+        "title": "Calcium ÷ phosphorus",
+        "line": "{ca} ÷ {p} = {ratio} → {ratio} : 1"
+      }
+    }
+  },
+  "food": {
+    "title": "Analyze a food",
+    "intro": "Type the numbers from the label. Results update as you type.",
+    "input": {
+      "title": "The food",
+      "subtitle": "Guaranteed analysis, as fed (the numbers on the label).",
+      "name": "Name (optional)",
+      "namePlaceholder": "e.g. Dog Food A",
+      "type": "Type",
+      "commercial": "Commercial",
+      "commercialSub": "kibble, can",
+      "homePrepared": "Home-prepared",
+      "homePreparedSub": "raw, cooked",
+      "form": "Form",
+      "dry": "Dry",
+      "moist": "Wet",
+      "protein": "Protein",
+      "fat": "Fat",
+      "fibre": "Fibre",
+      "moisture": "Moisture",
+      "ash": "Ash",
+      "ashHelp": "No ash on the label? Dry food usually has {dry}, wet food {wet}.",
+      "labelEnergy": "Energy on the label (optional)",
+      "labelEnergyHelp": "If the label gives kcal/kg, the app uses it. If not, it uses the estimate.",
+      "numberError": "Please type a number",
+      "add": "Add a nutrient",
+      "addPlaceholder": "+ Add a nutrient…",
+      "addHelp": "Calcium, phosphorus, vitamins … from the label or a typical analysis.",
+      "remove": "Remove {name}",
+      "ga": "Guaranteed analysis"
+    },
+    "compare": {
+      "title": "Compare with",
+      "subtitle": "Guidelines used to judge the results.",
+      "animal": "Animal",
+      "standard": "Nutrient guideline",
+      "standardNote": "NRC tables are not in the app yet, so FEDIAF is used.",
+      "profile": "Life stage (FEDIAF)",
+      "shares": "Recommended energy shares for"
+    },
+    "results": {
+      "title": "Results",
+      "needs": "Needs: {list}",
+      "carb": "Carbohydrate (NFE)",
+      "carbOver": "These numbers add up to more than 100 %. Check the label.",
+      "energy": "Energy",
+      "energyEstimate": "Estimate ({factors})",
+      "factorsCommercial": "Modified Atwater 3.5-8.5-3.5",
+      "factorsHome": "Atwater 4-9-4",
+      "perKg": "kcal/kg",
+      "per100g": "kcal per 100 g",
+      "perLb": "kcal/lb",
+      "fromLabel": "From the label",
+      "usedLabel": "Per 1000 kcal and AAFCO use the label energy.",
+      "usedEstimate": "No label energy: per 1000 kcal and AAFCO use the estimate.",
+      "light": "AAFCO “light” dry dog food: at most {max} kcal/kg",
+      "lightYes": "Within the “light” limit",
+      "lightNo": "Above the “light” limit",
+      "shares": "Share of energy",
+      "sharesProtein": "Protein",
+      "sharesFat": "Fat",
+      "sharesCarb": "Carbohydrate",
+      "sharesFits": "Fits: {label}",
+      "sharesNotFit": "Does not fit: {label}",
+      "range": "{lo}–{hi} %",
+      "rangeUnder": "under {hi} %",
+      "dm": "Dry matter",
+      "dmValue": "Dry matter",
+      "dmEnergyWarn": "{kcal} kcal/kg DM is outside {min}–{max}. % DM tables can mislead here: use per 1000 kcal.",
+      "density": "Nutrients per 1000 kcal",
+      "densityEmpty": "Add a nutrient above to see more.",
+      "aafco": "At AAFCO standard energy",
+      "aafcoSub": "The % this food would have at {standard} kcal/kg ({form} food).",
+      "caP": "Calcium : phosphorus",
+      "caPNeeds": "Add calcium and phosphorus to see the ratio."
+    },
+    "judge": {
+      "veryLow": "Very low",
+      "low": "Low",
+      "medium": "Medium",
+      "high": "High",
+      "lowOrMedium": "Low or medium",
+      "gap": "Between levels",
+      "belowMin": "Below FEDIAF min {min}",
+      "aboveMax": "Above FEDIAF max {max}",
+      "aboveLegal": "Above EU legal limit",
+      "ok": "Meets FEDIAF",
+      "check": "Check",
+      "inside": "in range",
+      "below": "below",
+      "above": "above",
+      "caPInRange": "In range for {label} ({min}–{max} : 1)",
+      "caPOut": "Outside {label} ({min}–{max} : 1)"
     }
   }
 }

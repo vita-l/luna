@@ -5,6 +5,7 @@ import { TabBar } from "@/components/shell/tab-bar";
 import { TopBar } from "@/components/shell/top-bar";
 import { copy } from "@/lib/copy";
 import { FeedStateProvider } from "@/lib/state/feed-state";
+import { FoodStateProvider } from "@/lib/state/food-state";
 
 export const metadata: Metadata = {
   title: { default: copy.app.title, template: `%s · ${copy.app.name}` },
@@ -27,9 +28,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body>
         <MotionProvider>
           <FeedStateProvider>
-            <TopBar />
-            {children}
-            <TabBar />
+            <FoodStateProvider>
+              <TopBar />
+              {children}
+              <TabBar />
+            </FoodStateProvider>
           </FeedStateProvider>
         </MotionProvider>
       </body>

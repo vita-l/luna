@@ -15,7 +15,7 @@ export interface Section {
 }
 
 export const sections: Section[] = [
-  { key: "food", href: "/food", label: copy.nav.food, icon: ScanText, ready: false },
+  { key: "food", href: "/food", label: copy.nav.food, icon: ScanText, ready: true },
   { key: "feed", href: "/feed", label: copy.nav.feed, icon: PawPrint, ready: true },
   { key: "check", href: "/check", label: copy.nav.check, icon: ClipboardCheck, ready: false },
   { key: "tools", href: "/tools", label: copy.nav.tools, icon: Calculator, ready: false },

@@ -44,14 +44,14 @@ export function calcFood({ kcal, range, densityText, meals }: FoodInput): FoodRe
   const steps: MathStep[] = [
     {
       id: "kgPerDay",
-      lines: pick([
+      range, lines: pick([
         { kcal: fmt(kcal[0]), density: fmt(d, 1), kgDay: fmt(kgDay[0], 3) },
         { kcal: fmt(kcal[1]), density: fmt(d, 1), kgDay: fmt(kgDay[1], 3) },
       ]),
     },
     {
       id: "grams",
-      lines: pick([
+      range, lines: pick([
         { kgDay: fmt(kgDay[0], 3), grams: fmt(grams[0]) },
         { kgDay: fmt(kgDay[1], 3), grams: fmt(grams[1]) },
       ]),
@@ -65,7 +65,7 @@ export function calcFood({ kcal, range, densityText, meals }: FoodInput): FoodRe
     steps.push({
       id: "meals",
       titleVars: { meals: m },
-      lines: pick([
+      range, lines: pick([
         { grams: fmt(grams[0]), meals: m, perMeal: fmt(perMeal[0]) },
         { grams: fmt(grams[1]), meals: m, perMeal: fmt(perMeal[1]) },
       ]),

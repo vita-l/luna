@@ -1,0 +1,74 @@
+{
+  "_about": "Texts for the small (i) buttons. Words come from the glossary in Vita's library (my-learning/glossary.md). Change the glossary first, then copy the change here.",
+
+  "guaranteedAnalysis": {
+    "title": "Guaranteed analysis",
+    "text": "The nutrient list on a pet food label (protein, fat, fibre, moisture…), shown as fed. Protein and fat are minimums; fibre and moisture are maximums. So they are not the real amounts.",
+    "source": "Glossary · L01 p. 10; L07 p. 3–4"
+  },
+  "ash": {
+    "title": "Ash",
+    "text": "The minerals left in food (what remains if you burn it at high temperature). Also called the inorganic or mineral content.",
+    "source": "Glossary · L01 p. 10; L07 p. 4"
+  },
+  "nfe": {
+    "title": "NFE (nitrogen-free extract)",
+    "text": "The carbohydrate you calculate “by difference”: 100 − (protein + fat + moisture + fibre + ash). It is starches and sugars (the digestible carbohydrate).",
+    "source": "Glossary · L07 p. 4, 10"
+  },
+  "atwater": {
+    "title": "Atwater and Modified Atwater factors",
+    "text": "Numbers that turn grams into kcal. Commercial food (kibble, cans): Modified Atwater, 3.5-8.5-3.5 kcal per gram, because processed food is less digestible. Home-prepared and very digestible food: Atwater, 4-9-4.",
+    "source": "Glossary · L01 p. 10; L07 p. 9–11"
+  },
+  "me": {
+    "title": "ME (metabolizable energy)",
+    "text": "Energy the body's cells can actually use. Used on pet food labels.",
+    "source": "Glossary · L01 p. 6"
+  },
+  "caloricDistribution": {
+    "title": "Caloric distribution",
+    "text": "What % of a food's energy (ME) comes from protein, fat and carbohydrate. Also written % ME or % kcal. The three numbers add up to 100 %.",
+    "source": "Glossary · L01 p. 9; L07 p. 3–5, 8–9"
+  },
+  "dryMatter": {
+    "title": "Dry matter (DM)",
+    "text": "The food without its water. Dry matter % = 100 − moisture %. % DM shows nutrients as if all water was removed, so you can compare wet and dry food.",
+    "source": "Glossary · L01 p. 9; L07 p. 3, 5–6"
+  },
+  "nutrientDensity": {
+    "title": "Nutrient density (per 1000 kcal)",
+    "text": "Nutrients measured per 1000 kcal of ME instead of per kg. A dog eats less of a high-energy food, so that food needs more nutrients per kg. It removes the effect of water and of energy, so you can compare any two foods.",
+    "source": "Glossary · L01 p. 8–9; L07 p. 6–7, 11"
+  },
+  "caP": {
+    "title": "Ca:P ratio",
+    "text": "Calcium divided by phosphorus in a diet. Recommended 1:1 to 2:1 for pet foods; 1.1:1 to 1.4:1 for home-cooked diets.",
+    "source": "Glossary · L03 p. 4"
+  },
+  "aafco": {
+    "title": "AAFCO standard energy",
+    "text": "AAFCO tables assume a dry food has 4000 kcal/kg and a moist food 1000 kcal/kg. To compare a food with other energy, correct its %: % ÷ kcal/kg of the food × the standard.",
+    "source": "L07 video, slide 17"
+  },
+  "fediaf": {
+    "title": "FEDIAF and NRC",
+    "text": "NRC is the science: its 2006 book gives the nutrient needs of dogs and cats. FEDIAF (Europe) and AAFCO (North America) turn it into rules for pet food. FEDIAF numbers here are per 1000 kcal ME; legal maximums (L) are per 100 g dry matter.",
+    "source": "Glossary · L07 p. 2; FEDIAF 2025 p. 72–79"
+  },
+  "levels": {
+    "title": "Low, medium, high",
+    "text": "General guidelines for formulating, per 1000 kcal. Dogs: protein low 30–50 g, high over 80 g. Cats need more protein: low under 70 g, high over 100 g. Some ranges on the slide overlap or have gaps, so the app may say “low or medium” or “between levels”.",
+    "source": "L07 video, slides 18 (dogs) and 19 (cats)"
+  },
+  "energyShares": {
+    "title": "Recommended energy shares",
+    "text": "Recommended % of energy from protein, fat and carbohydrate for commercial foods (adult maintenance, performance, growth) and home-prepared diets. A food fits only if all three numbers are in range.",
+    "source": "L07 p. 8–9"
+  },
+  "light": {
+    "title": "“Light” foods",
+    "text": "AAFCO maximum for a dry dog food called “light” or “low calorie”: 3100 kcal/kg. Many “light” foods are above it, so check the number, not the name.",
+    "source": "L07 video, slides 7 and 15"
+  }
+}

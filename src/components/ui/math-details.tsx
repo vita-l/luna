@@ -44,7 +44,7 @@ export function MathDetails({
                 {step.lines.map((vars, li) => {
                   const line = fill(words.line, vars);
                   const text =
-                    step.lines.length === 2 ? fill(li === 0 ? copy.math.low : copy.math.high, { line }) : line;
+                    step.range ? fill(li === 0 ? copy.math.low : copy.math.high, { line }) : line;
                   return (
                     <span key={li} className="block tabular-nums">
                       {text}

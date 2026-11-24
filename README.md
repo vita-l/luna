@@ -11,7 +11,11 @@ The app has four layers, so each one can change without breaking the others.
 | You want to change… | Edit this | Notes |
 |---|---|---|
 | **Numbers from the course** (life stages, activity factors, K values) | `src/data/energy.ts` | Instructions at the top of the file |
+| **Food guides** (Atwater factors, energy shares, low/high table, Ca:P, AAFCO, "light") | `src/data/food-guides.ts` | Each number has its course source |
+| **Nutrient standards** (FEDIAF now, NRC later) | `src/data/standards/` | One file per standard; add NRC to `index.ts` and it becomes the default |
+| **Nutrients the app knows** | `src/data/nutrients.ts` | The "+ Add a nutrient" list |
 | **Words on screen** (titles, labels, help text, errors) | `src/content/en.json` | `{name}` is filled in by the app. `**word**` is bold |
+| **(i) tips** | `src/content/tips.json` | Text from the glossary in the study library |
 | **Colors, corners, shadows, timing** | `src/styles/tokens.css` | Light and dark mode. Will map to Figma variables |
 | **Screen layout** | `src/components/` | `ui/` = reusable pieces, `feed/` = the Feed screen |
 | **The math** | `src/lib/calc/` | Pure calculations, no screen code |

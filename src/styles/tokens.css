@@ -51,6 +51,8 @@
   --ease-standard: cubic-bezier(.2, 0, 0, 1);
   --animate-open: collapsible-open 220ms cubic-bezier(.2, 0, 0, 1);
   --animate-close: collapsible-close 180ms cubic-bezier(.2, 0, 0, 1);
+  --animate-tip-in: tip-in 160ms cubic-bezier(.2, 0, 0, 1);
+  --animate-tip-out: tip-out 120ms cubic-bezier(.2, 0, 0, 1);
 }
 
 /* Dark mode: same token names, different values */

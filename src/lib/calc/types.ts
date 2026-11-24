@@ -12,8 +12,10 @@ export type MathLine = Record<string, string>;
 
 export interface MathStep {
   id: StepId;
-  /** One line, or two lines (Low and High) for a range */
+  /** The lines of this step */
   lines: MathLine[];
+  /** True when the two lines are the Low and High ends of a range */
+  range?: boolean;
   /** Values for the step title, e.g. {meals} in "Split into {meals} meals" */
   titleVars?: MathLine;
 }

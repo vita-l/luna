@@ -104,7 +104,7 @@ function withFactor(
 
   steps.push({
     id: "merFactor",
-    lines: pick([
+    range, lines: pick([
       { rer: fmt1(rer), factor: fmtFactorValue(f[0]), mer: fmt1(mer[0]) },
       { rer: fmt1(rer), factor: fmtFactorValue(f[1]), mer: fmt1(mer[1]) },
     ]),
@@ -112,7 +112,7 @@ function withFactor(
   if (mer[0] !== kcal[0] || mer[1] !== kcal[1]) {
     steps.push({
       id: "roundKcal",
-      lines: pick([
+      range, lines: pick([
         { from: fmt1(mer[0]), to: fmt(kcal[0]) },
         { from: fmt1(mer[1]), to: fmt(kcal[1]) },
       ]),
