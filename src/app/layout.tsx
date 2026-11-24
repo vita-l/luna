@@ -1,10 +1,13 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import { MotionProvider } from "@/components/ui/motion-provider";
+import { TabBar } from "@/components/shell/tab-bar";
+import { TopBar } from "@/components/shell/top-bar";
 import { copy } from "@/lib/copy";
+import { FeedStateProvider } from "@/lib/state/feed-state";
 
 export const metadata: Metadata = {
-  title: copy.app.title,
+  title: { default: copy.app.title, template: `%s · ${copy.app.name}` },
   description: copy.app.description,
 };
 
@@ -22,7 +25,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className="antialiased">
       <body>
-        <MotionProvider>{children}</MotionProvider>
+        <MotionProvider>
+          <FeedStateProvider>
+            <TopBar />
+            {children}
+            <TabBar />
+          </FeedStateProvider>
+        </MotionProvider>
       </body>
     </html>
   );

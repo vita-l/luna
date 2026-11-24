@@ -10,14 +10,15 @@
   math → src/lib/calc · look → src/components/ui + src/styles/tokens.css
 */
 import { AnimatePresence, motion } from "motion/react";
-import { useState } from "react";
+import { useId, useState } from "react";
 
 import { energyData } from "@/data/energy";
 import { calcEnergy, formulaFor } from "@/lib/calc/energy";
 import { calcFood } from "@/lib/calc/food";
 import { fmt, fmtFactor, fmtPair } from "@/lib/calc/numbers";
 import type { Method, Unit } from "@/lib/calc/types";
-import { convertWeight, type ConversionNote, type LastConversion } from "@/lib/calc/weight";
+import { convertWeight, type ConversionNote } from "@/lib/calc/weight";
+import { useFeedState } from "@/lib/state/feed-state";
 import { copy, fill } from "@/lib/copy";
 import type { Species } from "@/lib/data/energy-schema";
 import {
@@ -43,18 +44,14 @@ const t = copy.feed;
 const data = energyData;
 
 export function FeedScreen() {
-  // ---------- What the user picked and typed ----------
-  const [method, setMethod] = useState<Method>("factor");
-  const [species, setSpecies] = useState<Species>("dog");
-  const [unit, setUnit] = useState<Unit>("lb");
-  const [weightText, setWeightText] = useState("");
-  const [lastConversion, setLastConversion] = useState<LastConversion | null>(null);
+  // ---------- What the user picked and typed (shared by all screens, saved on the device) ----------
+  const { state, update } = useFeedState();
+  // Unique ids: Next.js can keep a hidden copy of this screen alive, and ids must never repeat
+  const uid = useId();
+  const id = (name: string) => `${uid}-${name}`;
+  const { method, species, unit, weightText, lastConversion, stageId, choiceIndex, kIndex, densityText, meals } = state;
+  // The "22 lb ÷ 2.2 = 10 kg" note only shows right after a switch
   const [conversionNote, setConversionNote] = useState<ConversionNote | null>(null);
-  const [stageId, setStageId] = useState(() => defaultStageId(data, "dog"));
-  const [choiceIndex, setChoiceIndex] = useState(() => autoChoiceIndex(data, "dog", defaultStageId(data, "dog")));
-  const [kIndex, setKIndex] = useState<number | null>(null);
-  const [densityText, setDensityText] = useState("");
-  const [meals, setMeals] = useState<Meals>(1);
 
   // ---------- What follows from it ----------
   const stage = findStage(data, species, stageId);
@@ -73,29 +70,21 @@ export function FeedScreen() {
   // ---------- Actions ----------
   function changeSpecies(next: Species) {
     const nextStage = defaultStageId(data, next);
-    setSpecies(next);
-    setStageId(nextStage);
-    setChoiceIndex(autoChoiceIndex(data, next, nextStage));
-    setKIndex(null);
+    update({ species: next, stageId: nextStage, choiceIndex: autoChoiceIndex(data, next, nextStage), kIndex: null });
   }
   function changeMethod(next: Method) {
-    setMethod(next);
-    setKIndex(null);
+    update({ method: next, kIndex: null });
   }
   function changeStage(next: string) {
-    setStageId(next);
-    setChoiceIndex(autoChoiceIndex(data, species, next));
+    update({ stageId: next, choiceIndex: autoChoiceIndex(data, species, next) });
   }
   function changeUnit(next: Unit) {
     const r = convertWeight({ text: weightText, from: unit, to: next, lbPerKg: data.settings.lbPerKg, last: lastConversion });
-    setWeightText(r.text);
-    setLastConversion(r.last);
+    update({ weightText: r.text, lastConversion: r.last, unit: next });
     setConversionNote(r.note);
-    setUnit(next);
   }
   function typeWeight(next: string) {
-    setWeightText(next);
-    setLastConversion(null); // typing a new weight forgets the last switch
+    update({ weightText: next, lastConversion: null }); // typing a new weight forgets the last switch
     setConversionNote(null);
   }
 
@@ -127,11 +116,11 @@ export function FeedScreen() {
   return (
     <>
       {/* ================= STEP 1: calories ================= */}
-      <StepCard step={1} id="s1-title" title={t.step1.title} subtitle={t.step1.subtitle}>
+      <StepCard step={1} id={id("s1-title")} title={t.step1.title} subtitle={t.step1.subtitle}>
         <Field>
-          <FieldLabel id="method-label">{t.step1.method}</FieldLabel>
+          <FieldLabel id={id("method-label")}>{t.step1.method}</FieldLabel>
           <Segmented<Method>
-            labelledBy="method-label"
+            labelledBy={id("method-label")}
             value={method}
             onValueChange={changeMethod}
             options={[
@@ -143,9 +132,9 @@ export function FeedScreen() {
         </Field>
 
         <Field>
-          <FieldLabel id="animal-label">{t.step1.animal}</FieldLabel>
+          <FieldLabel id={id("animal-label")}>{t.step1.animal}</FieldLabel>
           <Segmented<Species>
-            labelledBy="animal-label"
+            labelledBy={id("animal-label")}
             value={species}
             onValueChange={changeSpecies}
             options={[
@@ -156,15 +145,15 @@ export function FeedScreen() {
         </Field>
 
         <Field>
-          <FieldLabel htmlFor="weight">{ideal ? t.step1.idealWeight : t.step1.weight}</FieldLabel>
+          <FieldLabel htmlFor={id("weight")}>{ideal ? t.step1.idealWeight : t.step1.weight}</FieldLabel>
           <div className="flex items-stretch gap-2">
             <NumberField
-              id="weight"
+              id={id("weight")}
               value={weightText}
               onChange={typeWeight}
               placeholder={t.step1.weightPlaceholder}
               invalid={energy.weightStatus === "invalid"}
-              describedBy="weight-note weight-msg"
+              describedBy={`${id("weight-note")} ${id("weight-msg")}`}
               size="short"
             />
             <Segmented<Unit>
@@ -179,12 +168,12 @@ export function FeedScreen() {
             />
           </div>
           {conversionNote && (
-            <Message id="weight-note">
+            <Message id={id("weight-note")}>
               {fill(conversionNote.kind === "toKg" ? t.step1.toKgNote : t.step1.toLbNote, conversionNote.vars)}
             </Message>
           )}
           {energy.weightStatus === "invalid" && (
-            <Message id="weight-msg" tone="error">
+            <Message id={id("weight-msg")} tone="error">
               {t.step1.weightError}
             </Message>
           )}
@@ -197,9 +186,9 @@ export function FeedScreen() {
 
         {!isK && (
           <Field>
-            <FieldLabel id="stage-label">{t.step1.lifeStage}</FieldLabel>
+            <FieldLabel id={id("stage-label")}>{t.step1.lifeStage}</FieldLabel>
             <Chips
-              labelledBy="stage-label"
+              labelledBy={id("stage-label")}
               value={stageId ?? ""}
               onValueChange={changeStage}
               options={usableStages(data, species).map((s) => ({ value: s.id, label: s.label }))}
@@ -208,17 +197,17 @@ export function FeedScreen() {
         )}
 
         <Field>
-          <FieldLabel id="q2-label" hidden={!question}>
+          <FieldLabel id={id("q2-label")} hidden={!question}>
             {question ?? t.step1.chooseOne}
           </FieldLabel>
           {!isK && stage?.note && <Message tone="note">{stage.note}</Message>}
           <OptionGroup
             key={`${method}-${species}-${stageId}`}
-            labelledBy="q2-label"
+            labelledBy={id("q2-label")}
             items={optionItems}
             tiles={!isK && stage?.layout === "grid"}
             value={isK ? (kIndex === null ? null : String(kIndex)) : choiceIndex === null ? null : String(choiceIndex)}
-            onValueChange={(v) => (isK ? setKIndex(Number(v)) : setChoiceIndex(Number(v)))}
+            onValueChange={(v) => update(isK ? { kIndex: Number(v) } : { choiceIndex: Number(v) })}
           />
         </Field>
 
@@ -241,39 +230,39 @@ export function FeedScreen() {
       </StepCard>
 
       {/* ================= STEP 2: food ================= */}
-      <StepCard step={2} id="s2-title" title={t.step2.title} subtitle={t.step2.subtitle}>
+      <StepCard step={2} id={id("s2-title")} title={t.step2.title} subtitle={t.step2.subtitle}>
         <Field>
-          <FieldLabel htmlFor="density">{t.step2.energy}</FieldLabel>
+          <FieldLabel htmlFor={id("density")}>{t.step2.energy}</FieldLabel>
           <NumberField
-            id="density"
+            id={id("density")}
             value={densityText}
-            onChange={setDensityText}
+            onChange={(v) => update({ densityText: v })}
             placeholder={t.step2.energyPlaceholder}
             suffix={t.step2.energySuffix}
             invalid={food.densityStatus === "invalid"}
-            describedBy="density-help density-msg"
+            describedBy={`${id("density-help")} ${id("density-msg")}`}
           />
-          <Message id="density-help">
+          <Message id={id("density-help")}>
             <RichText text={t.step2.energyHelp} />
           </Message>
           {food.densityStatus === "invalid" && (
-            <Message id="density-msg" tone="error">
+            <Message id={id("density-msg")} tone="error">
               {t.step2.energyError}
             </Message>
           )}
           {food.lowWarning && (
-            <Message id="density-msg" tone="warn">
+            <Message id={id("density-msg")} tone="warn">
               {t.step2.energyLowWarn}
             </Message>
           )}
         </Field>
 
         <Field>
-          <FieldLabel id="meals-label">{t.step2.meals}</FieldLabel>
+          <FieldLabel id={id("meals-label")}>{t.step2.meals}</FieldLabel>
           <Segmented<"1" | "2" | "3">
-            labelledBy="meals-label"
+            labelledBy={id("meals-label")}
             value={String(meals) as "1" | "2" | "3"}
-            onValueChange={(v) => setMeals(Number(v) as Meals)}
+            onValueChange={(v) => update({ meals: Number(v) as Meals })}
             options={[
               { value: "1", label: t.step2.mealsNo },
               { value: "2", label: t.step2.meals2 },

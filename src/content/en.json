@@ -1,7 +1,55 @@
 {
   "app": {
     "title": "Pet Food Calculator",
-    "description": "Estimate how many calories a dog or cat needs per day, and how many grams of food to feed."
+    "description": "Estimate how many calories a dog or cat needs per day, and how many grams of food to feed.",
+    "name": "Luna",
+    "tagline": "Pet nutrition calculator"
+  },
+
+  "nav": {
+    "label": "Main",
+    "home": "Home",
+    "food": "Food",
+    "feed": "Feed",
+    "check": "Check",
+    "tools": "Tools"
+  },
+
+  "home": {
+    "title": "What do you want to know?",
+    "intro": "Course formulas for dogs and cats, with every step shown.",
+    "food": { "title": "Analyze a food", "text": "Carbohydrate, energy, dry matter and nutrients per 1000 kcal from a food label." },
+    "feed": { "title": "Feed my pet", "text": "How many calories your pet needs each day, and how much food to give." },
+    "check": { "title": "Check the diet", "text": "Is the food enough for your pet? Nutrients and water per day." },
+    "tools": { "title": "Tools", "text": "Unit converter, ideal body weight, puppy growth." },
+    "soon": "Coming next"
+  },
+
+  "soon": {
+    "title": "Coming next",
+    "text": "This part of the app is being built. Here is what it will do:",
+    "back": "Go to Feed my pet",
+    "food": [
+      "Carbohydrate (NFE) from the label",
+      "Energy per 100 g and per kg",
+      "Share of energy from protein, fat and carbohydrate",
+      "Dry matter",
+      "Nutrients per 1000 kcal, with low or high",
+      "Ca : P ratio",
+      "Compare with NRC or FEDIAF guidelines"
+    ],
+    "check": [
+      "Nutrients eaten per day",
+      "Needed per day, and is it enough?",
+      "Water need, water from food, water to drink",
+      "Cups per day"
+    ],
+    "tools": [
+      "Unit converter (kcal, kJ, IU, ppm …)",
+      "Amount per kg of body weight → per day",
+      "Ideal body weight from BCS",
+      "Puppy growth per day"
+    ]
   },
 
   "feed": {
