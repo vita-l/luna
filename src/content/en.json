@@ -228,6 +228,30 @@
       "caP": {
         "title": "Calcium ÷ phosphorus",
         "line": "{ca} ÷ {p} = {ratio} → {ratio} : 1"
+      },
+      "cups": {
+        "title": "Cups per day: kcal per day ÷ kcal per cup",
+        "line": "{kcal} ÷ {perCup} = {cups} cups"
+      },
+      "eaten": {
+        "title": "Eaten per day: per 1000 kcal × kcal per day ÷ 1000",
+        "line": "{name}: {per1000} {unit} × {kcal} ÷ 1000 = {eaten} {unit}"
+      },
+      "needed": {
+        "title": "Needed per day: minimum per kg metabolic weight × metabolic weight",
+        "line": "{name}: {perMbw} {unit} × {mbw} = {needed} {unit}"
+      },
+      "waterPerKcal": {
+        "title": "About 1 mL of water per kcal",
+        "line": "{kcal} kcal → {ml} mL"
+      },
+      "waterPerKg": {
+        "title": "mL per kg × body weight",
+        "line": "{perKg} mL × {kg} kg = {ml} mL"
+      },
+      "waterFromFood": {
+        "title": "Water from food: moisture % ÷ 100 × grams (1 g = 1 mL)",
+        "line": "{moisture} ÷ 100 × {grams} g = {ml} mL"
       }
     }
   },
@@ -324,6 +348,55 @@
       "above": "above",
       "caPInRange": "In range for {label} ({min}–{max} : 1)",
       "caPOut": "Outside {label} ({min}–{max} : 1)"
+    }
+  },
+  "check": {
+    "title": "Check the diet",
+    "intro": "Your pet and your food together: grams, nutrients and water per day.",
+    "summary": {
+      "title": "Your pet and food",
+      "pet": "Pet",
+      "food": "Food",
+      "edit": "Edit",
+      "petMissing": "Finish Feed my pet first: weight and life stage.",
+      "foodMissing": "Analyze a food first. The label numbers, or at least the kcal/kg, are needed.",
+      "kcalDay": "{kcal} kcal per day",
+      "foodEnergy": "{kcal} kcal/kg ({source})",
+      "fromLabel": "from the label",
+      "estimate": "estimate",
+      "unnamed": "Your food",
+      "speciesMismatch": "The food is judged for a {food}, but your pet is a {pet}. Change the animal in Food."
+    },
+    "amount": {
+      "title": "Daily amount",
+      "grams": "g per day",
+      "cupLabel": "Energy per cup (optional)",
+      "cupHelp": "From the label, e.g. 425 kcal/cup.",
+      "cups": "cups per day",
+      "cupsNote": "Only a starting point: weigh your pet and adjust."
+    },
+    "nutrients": {
+      "title": "Nutrients per day",
+      "eats": "Eats {value}",
+      "needs": "needs {value}",
+      "enough": "Enough",
+      "notEnough": "Not enough",
+      "onlyHigh": "Only at the high end",
+      "adultsOnly": "The needs per kg metabolic weight are for adult maintenance only, so they are not shown for this life stage.",
+      "mbw": "Metabolic weight: {mbw} kg^{power}",
+      "empty": "Add nutrients in Food to see them here."
+    },
+    "water": {
+      "title": "Water per day",
+      "perKcal": "About 1 mL per kcal",
+      "perKg": "40–60 mL per kg",
+      "classic": "Classic formula: {lo}–{hi} mL per kg",
+      "need": "Needs",
+      "fromFood": "From food",
+      "drink": "To drink",
+      "ml": "{value} mL",
+      "check": "Check: for dogs, these rules don't agree (L01 vs the L07 video). Ask which one your quiz expects.",
+      "needsMoisture": "Add the moisture % in Food to see the water from food."
     }
   }
 }

@@ -1,6 +1,5 @@
 {
   "_about": "Texts for the small (i) buttons. Words come from the glossary in Vita's library (my-learning/glossary.md). Change the glossary first, then copy the change here.",
-
   "guaranteedAnalysis": {
     "title": "Guaranteed analysis",
     "text": "The nutrient list on a pet food label (protein, fat, fibre, moisture…), shown as fed. Protein and fat are minimums; fibre and moisture are maximums. So they are not the real amounts.",
@@ -70,5 +69,20 @@
     "title": "“Light” foods",
     "text": "AAFCO maximum for a dry dog food called “light” or “low calorie”: 3100 kcal/kg. Many “light” foods are above it, so check the number, not the name.",
     "source": "L07 video, slides 7 and 15"
+  },
+  "metabolicWeight": {
+    "title": "Metabolic body weight",
+    "text": "Body weight raised to a power (BW^0.75 dogs, BW^0.67 cats). Used because energy use follows body surface area, not plain weight. Unit: kg^0.75 (not plain kg).",
+    "source": "Glossary · L04 p. 19"
+  },
+  "water": {
+    "title": "Water need (daily)",
+    "text": "How much water a dog or cat needs each day. The course gives three rules: about 1 mL per kcal of energy need; 40–60 mL per kg body weight (L01); the “classic formula”, dog 90–100, cat 45–60 mL per kg (L07 video). Food gives water too: moisture % ÷ 100 × grams eaten. The rest must be drunk. For dogs the rules don't agree.",
+    "source": "Glossary · L01 p. 5; L07 video slides 23–24"
+  },
+  "enough": {
+    "title": "Is it enough?",
+    "text": "Eaten per day = nutrient per 1000 kcal × kcal per day ÷ 1000. Needed per day = the minimum per kg metabolic body weight × metabolic body weight. A food that meets the guideline per 1000 kcal can still be too little for an animal that eats little (a low energy need).",
+    "source": "Cheat sheet card 14b · L07 video slides 11–14 · FEDIAF 2025 Table VII-11"
   }
 }

@@ -29,13 +29,25 @@ export const standardProfileSchema = z.object({
   nutrients: z.record(z.string(), nutrientLimitSchema),
 });
 
+/** Minimum needs per kg METABOLIC body weight per day (dogs kg^0.75, cats kg^0.67), adult maintenance */
+export const perMetabolicWeightSchema = z.object({
+  source: z.string().min(1),
+  /** Only for these life stages (adults) */
+  appliesTo: z.string().min(1),
+  dog: z.record(z.string(), amount),
+  cat: z.record(z.string(), amount),
+});
+
 export const standardSchema = z.object({
   id: z.string().min(1),
   name: z.string().min(1),
   fullName: z.string().min(1),
   year: z.number().int(),
   profiles: z.array(standardProfileSchema).min(1),
+  perMetabolicWeight: perMetabolicWeightSchema.optional(),
 });
+
+export type Amount = z.infer<typeof amount>;
 
 export type NutrientLimit = z.infer<typeof nutrientLimitSchema>;
 export type StandardProfile = z.infer<typeof standardProfileSchema>;

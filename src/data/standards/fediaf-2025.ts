@@ -306,4 +306,25 @@ export const fediaf2025: Standard = {
       },
     },
   ],
+
+  // Table VII-11 (p. 58; also L08 p. 3): minimum per kg METABOLIC body weight per day,
+  // adult maintenance only. Dogs: kg BW^0.75 · Cats: kg BW^0.67
+  perMetabolicWeight: {
+    source: "FEDIAF 2025 Table VII-11, p. 58",
+    appliesTo: "Adult maintenance",
+    dog: {
+      protein: 4.95, arginine: 0.14, methionine: 0.11, metCys: 0.21,
+      fat: 1.51, linoleic: 0.36,
+      calcium: 0.14, phosphorus: 0.11, potassium: 0.14, sodium: 0.03, chloride: 0.04, magnesium: 0.02,
+      copper: 0.2, iodine: 0.03, iron: 1.0, manganese: 0.16, selenium: { wet: 6.4, dry: 5.2 }, zinc: 2.0,
+      vitaminA: 167.0, vitaminD: 15.2, vitaminE: 1.0,
+    },
+    cat: {
+      protein: 6.25, arginine: 0.25, methionine: 0.04, metCys: 0.09, taurine: { wet: 0.05, dry: 0.03 },
+      fat: 2.25, linoleic: 0.13,
+      calcium: 0.1, phosphorus: 0.06, potassium: 0.15, sodium: 0.02, chloride: 0.03, magnesium: 0.01,
+      copper: 0.13, iodine: 0.03, iron: 2.0, manganese: 0.13, selenium: { wet: 6.6, dry: 5.3 }, zinc: 1.88,
+      vitaminA: 83.25, vitaminD: 6.25, vitaminE: 0.95,
+    },
+  },
 };

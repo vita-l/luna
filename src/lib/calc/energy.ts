@@ -32,11 +32,13 @@ export interface EnergyResult {
   range: boolean;
   /** The weight as typed, with its unit: "22 lb" */
   weightLabel: string | null;
+  /** The weight in kg, rounded the way the math shows it (null until a weight is typed) */
+  kg: number | null;
 }
 
 export function calcEnergy(input: EnergyInput): EnergyResult {
   const { data, species, method, unit, weightText, lastConversion } = input;
-  const empty: EnergyResult = { weightStatus: "empty", steps: [], kcal: null, range: false, weightLabel: null };
+  const empty: EnergyResult = { weightStatus: "empty", steps: [], kcal: null, range: false, weightLabel: null, kg: null };
 
   const w = parseNumber(weightText);
   if (w === null) return empty;
@@ -55,7 +57,7 @@ export function calcEnergy(input: EnergyInput): EnergyResult {
   }
   if (kg <= 0) return empty;
 
-  const base: EnergyResult = { weightStatus: "ok", steps, kcal: null, range: false, weightLabel: `${fmt(w, 2)} ${unit}` };
+  const base: EnergyResult = { weightStatus: "ok", steps, kcal: null, range: false, weightLabel: `${fmt(w, 2)} ${unit}`, kg };
   return method === "k" ? withK(base, kg, input.kChoice) : withFactor(base, kg, input.choice, data, species);
 }
 

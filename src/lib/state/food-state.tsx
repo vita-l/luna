@@ -18,6 +18,8 @@ const foodStateSchema = z.object({
   /** Nutrients added with "+ Add a nutrient", in the order added */
   added: z.array(z.string()),
   labelKcalText: z.string(),
+  /** Energy per cup from the label (used on the Check screen) */
+  kcalPerCupText: z.string().default(""),
   species: z.enum(["dog", "cat"]),
   standardId: z.string(),
   profileId: z.string(),
@@ -48,6 +50,7 @@ const store = createSavedStore<FoodState>({
     texts: {},
     added: [],
     labelKcalText: "",
+    kcalPerCupText: "",
     species: "dog",
     standardId: defaultStandardId,
     profileId: defaultProfileId(defaultStandardId, "dog"),

@@ -69,4 +69,11 @@ export const foodGuides: FoodGuides = {
 
   // Energy per kg of DRY MATTER: outside this range, % DM tables mislead → use per 1000 kcal
   dmEnergyRange: { min: 3500, max: 4500, source: "L07 video, slide 16" },
+
+  // WATER NEED PER DAY — three rules. The course sources don't agree for dogs (see the Check note).
+  water: {
+    perKcal: { mlPerKcal: 1, source: "L01 p. 5; L07 video, slide 23" },
+    perKg: { min: 40, max: 60, source: "L01 p. 5" },
+    classic: { dog: [90, 100], cat: [45, 60], source: "L07 video, slide 23" },
+  },
 };

@@ -1,12 +1,12 @@
 "use client";
 
-import { AnimatePresence, motion } from "motion/react";
+import { motion } from "motion/react";
 import { cn } from "@/lib/cn";
 
 /**
  * The result box. Grey with a hint while something is missing,
- * green with the big number when ready. The number fades in,
- * so the eye notices that a result appeared.
+ * green with the big number when ready. The number fades in quickly,
+ * so the eye notices that a result appeared (it is never hidden while fading).
  */
 export function ResultPanel({
   ready,
@@ -25,30 +25,21 @@ export function ResultPanel({
         ready ? "bg-accent-soft text-ink" : "bg-track text-muted",
       )}
     >
-      <AnimatePresence mode="wait" initial={false}>
-        {ready ? (
-          <motion.div
-            key="ready"
-            initial={{ opacity: 0, y: 4 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.18, ease: [0.2, 0, 0, 1] }}
-          >
-            {children}
-          </motion.div>
-        ) : (
-          <motion.p
-            key="empty"
-            className="m-0"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.12 }}
-          >
-            {emptyText}
-          </motion.p>
-        )}
-      </AnimatePresence>
+      {/* The new content is there at once; the fade only adds polish and never delays it */}
+      {ready ? (
+        <motion.div
+          key="ready"
+          initial={{ opacity: 0.4, y: 3 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.18, ease: [0.2, 0, 0, 1] }}
+        >
+          {children}
+        </motion.div>
+      ) : (
+        <p key="empty" className="m-0">
+          {emptyText}
+        </p>
+      )}
     </div>
   );
 }

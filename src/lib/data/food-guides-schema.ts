@@ -43,6 +43,11 @@ export const foodGuidesSchema = z.object({
   aafcoStandardEnergy: z.object({ dry: z.number(), moist: z.number(), source: z.string() }),
   lightMax: z.object({ kcalPerKg: z.number(), source: z.string() }),
   dmEnergyRange: z.object({ min: z.number(), max: z.number(), source: z.string() }),
+  water: z.object({
+    perKcal: z.object({ mlPerKcal: z.number().positive(), source: z.string() }),
+    perKg: z.object({ min: z.number().positive(), max: z.number().positive(), source: z.string() }),
+    classic: z.object({ dog: range, cat: range, source: z.string() }),
+  }),
 });
 
 export type FoodGuides = z.infer<typeof foodGuidesSchema>;

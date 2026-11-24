@@ -29,3 +29,14 @@ export function defaultStageId(data: EnergyData, species: Species): string | nul
 export function autoChoiceIndex(data: EnergyData, species: Species, stageId: string | null): number | null {
   return choicesFor(data, species, findStage(data, species, stageId)).length === 1 ? 0 : null;
 }
+
+/** The life stage, choice (method 1) and K value (method 2) the user picked */
+export function selectionFor(
+  data: EnergyData,
+  s: { species: Species; stageId: string | null; choiceIndex: number | null; kIndex: number | null },
+) {
+  const stage = findStage(data, s.species, s.stageId);
+  const choice = s.choiceIndex === null ? null : (choicesFor(data, s.species, stage)[s.choiceIndex] ?? null);
+  const kChoice = s.kIndex === null ? null : (data.kMethod[s.species][s.kIndex] ?? null);
+  return { stage, choice, kChoice };
+}

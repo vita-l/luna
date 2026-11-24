@@ -1,8 +1,8 @@
 # Luna — pet nutrition calculator
 
 A calculator for dog and cat nutrition, built from the CIVT *Natural Animal Nutrition* course.
-Right now: **How much should my pet eat?** (daily calories + grams of food).
-Coming next: analyze a food, check the diet, small tools.
+Screens: **Food** (analyze a label), **Feed** (daily calories + grams), **Check** (the pet and food together: amount, nutrients and water per day).
+Coming next: **Tools** (unit converter, ideal weight, puppy growth).
 
 ## Where things live
 

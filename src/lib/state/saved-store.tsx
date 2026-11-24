@@ -11,7 +11,7 @@ import { loadSaved, save } from "@/lib/storage";
 export function createSavedStore<T extends object>(options: {
   /** Change the version in the key when the saved shape changes, so old saves are ignored */
   key: string;
-  schema: z.ZodType<T>;
+  schema: z.ZodType<T, unknown>;
   initial: () => T;
   /** Fix saved data that no longer fits the app (for example, a renamed life stage) */
   repair?: (saved: T) => T;
